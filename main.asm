@@ -2,7 +2,11 @@
 	.text
 #APP
 	.globl _ZSt21ios_base_library_initv
+	.section	.rodata
+.LC0:
+	.string	"AchroDev"
 #NO_APP
+	.text
 	.globl	main
 	.type	main, @function
 main:
@@ -13,14 +17,16 @@ main:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$32, %rsp
-	movq	%fs:40, %rax
+	subq	$16, %rsp
+	leaq	.LC0(%rip), %rax
 	movq	%rax, -8(%rbp)
-	xorl	%eax, %eax
-	movabsq	$8531300314574775105, %rax
-	movq	%rax, -17(%rbp)
-	movb	$0, -9(%rbp)
-	movl	$8, %esi
+	movq	-8(%rbp), %rax
+	addq	$2, %rax
+	movb	$97, (%rax)
+	movq	-8(%rbp), %rax
+	movq	%rax, %rdi
+	call	strlen@PLT
+	movq	%rax, %rsi
 	leaq	_ZSt4cout(%rip), %rax
 	movq	%rax, %rdi
 	call	_ZNSolsEm@PLT
@@ -32,11 +38,6 @@ main:
 	movq	%rax, %rdi
 	call	_ZNSi3getEv@PLT
 	movl	$0, %eax
-	movq	-8(%rbp), %rdx
-	subq	%fs:40, %rdx
-	je	.L3
-	call	__stack_chk_fail@PLT
-.L3:
 	leave
 	.cfi_def_cfa 7, 8
 	ret
