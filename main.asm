@@ -21,15 +21,10 @@ main:
 	leaq	.LC0(%rip), %rax
 	movq	%rax, -8(%rbp)
 	movq	-8(%rbp), %rax
-	addq	$2, %rax
-	movb	$97, (%rax)
-	movq	-8(%rbp), %rax
-	movq	%rax, %rdi
-	call	strlen@PLT
 	movq	%rax, %rsi
 	leaq	_ZSt4cout(%rip), %rax
 	movq	%rax, %rdi
-	call	_ZNSolsEm@PLT
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
 	movq	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GOTPCREL(%rip), %rdx
 	movq	%rdx, %rsi
 	movq	%rax, %rdi
