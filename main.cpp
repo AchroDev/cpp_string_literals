@@ -8,7 +8,8 @@
 
 int main()
 {
-    char *name = "AchroDev"; // A string literal can also be assigned to a char *. Removing const with some compilers will let you compile this
+    char *name = "AchroDev"; // Assigning a char * like this is undefined behavior. Removing const with some compilers will let you compile this
+    name[2] = 'a';           // Cannot modify. If you want to make the string an array instead of a pointer.
     std::cout << name << std::endl;
     std::cin.get();
 }
