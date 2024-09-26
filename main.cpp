@@ -8,8 +8,8 @@
 
 int main()
 {
-    char *name = "AchroDev"; // Assigning a char * like this is undefined behavior. Removing const with some compilers will let you compile this
-    name[2] = 'a';           // Cannot modify. If you want to make the string an array instead of a pointer.
+    char name[] = "AchroDev"; // As an array, it can be modified and is defined behavior
+    name[2] = 'a';            // Now works and prints "AcaroDev"
     std::cout << name << std::endl;
     std::cin.get();
 }
