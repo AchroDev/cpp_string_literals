@@ -8,7 +8,7 @@
 
 int main()
 {
-    const char *name = "AchroDev";      // Remember char is a 1 byte type
+    const char *name = u8"AchroDev";    // Remember char is a 1 byte type, can also be force defined by appended 'u8'
     const wchar_t *name2 = L"AchroDev"; // wchar_t is a wide character. The string must be appended with 'L' to signify the following string is made up of wide chars
 
     const char16_t *name3 = u"AchroDev"; // Introduced in C++ 11, unsigned 16-bit
