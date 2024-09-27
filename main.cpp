@@ -24,6 +24,18 @@ int main()
     const char16_t *name3 = u"AchroDev"; // Introduced in C++ 11, 2 bytes per char, unsigned 16-bit
     const char32_t *name4 = U"AchroDev"; // Introduced in C++ 11, 4 bytes per char, unsigned 32-bit
 
+    // Appending the string(s) with the 'R' char, it signifies to ignore escape characters
+    const char *example = R"(Line1
+    Line2
+    Line3
+    Line4)";
+
+    // Without using 'R' to ingore escape chars, you will have to manually write in the new lines
+    const char *ex = "Line1\n"
+                     "Line2\n"
+                     "Line3\n"
+                     "Line4\n";
+
     std::cout << name << std::endl;
     std::cin.get();
 }
